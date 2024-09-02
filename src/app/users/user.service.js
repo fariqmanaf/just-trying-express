@@ -81,6 +81,8 @@ const deleteUserByIdService = asyncHandler(async(req, res) => {
     deletePhoto(deletedUser.photo);
   }
 
+  res.clearCookie("jwt");
+
   res.status(200).json({
     message: "User deleted successfully",
   });

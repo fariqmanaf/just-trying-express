@@ -17,9 +17,12 @@ app.use(express.static('public'));
 const { notFound, errorHandler } = require("./src/utils/handler/errorHandler");
 const auth = require("./src/app/auth/auth.controller");
 const users = require("./src/app/users/user.controller");
+const projects = require("./src/app/project/project.controller");
+const tasks = require("./src/app/task/task.controller");
 
 app.use("/auth", auth);
 app.use("/users", users);
+app.use("/projects", projects, tasks);
 
 app.use(notFound);
 app.use(errorHandler);

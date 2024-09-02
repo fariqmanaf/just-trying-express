@@ -1,7 +1,15 @@
 const prisma = require("../../db");
 
 const getListUsersRepo = async () => {
-  const users = await prisma.user.findMany();
+  const users = await prisma.user.findMany({
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      photo: true
+    }
+  });
+  
   return users;
 };
 
